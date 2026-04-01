@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dhpk5ffwgmqo8"]
+
+[node name="Main" type="Node3D" unique_id=1458931452]
+
+[node name="Environment" type="Node3D" parent="." unique_id=1165375977]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1023220054]
+transform = Transform3D(0.7296612, -0.4108303, -0.5466379, 0, 0.79940164, -0.600797, 0.6838088, 0.43837827, 0.58329237, 0, 0, 0)
+light_color = Color(1, 1, 0.61960787, 1)
+light_volumetric_fog_energy = 0.5
+light_angular_distance = 2.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=93448742]
+
+[node name="Water" type="MeshInstance3D" parent="Environment" unique_id=157225992]
