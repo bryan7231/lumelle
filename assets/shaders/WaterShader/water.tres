@@ -1,0 +1,21 @@
+[gd_resource type="CylinderMesh" format=3 uid="uid://cciy0vwh2bi2"]
+
+[ext_resource type="Shader" uid="uid://vvnmfjxnhyrb" path="res://assets/shaders/WaterShader/main.gdshader" id="1_idhl5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jyhfs"]
+render_priority = 0
+shader = ExtResource("1_idhl5")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/roughness = 0.55000000819566
+shader_parameter/metallic = 0.0
+shader_parameter/distortion_speed = 3.0
+shader_parameter/tile = Vector2(200, 200)
+shader_parameter/height = 2.0
+shader_parameter/wave_size = Vector2(2, 2)
+shader_parameter/wave_speed = 3.0
+
+[resource]
+material = SubResource("ShaderMaterial_jyhfs")
+top_radius = 2000.0

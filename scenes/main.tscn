@@ -1,16 +1,62 @@
 [gd_scene format=3 uid="uid://dhpk5ffwgmqo8"]
 
+[ext_resource type="CylinderMesh" uid="uid://cciy0vwh2bi2" path="res://assets/shaders/WaterShader/water.tres" id="1_o5qli"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
+sky_top_color = Color(0.75128716, 0.15650678, 0.40742365, 1)
+sky_horizon_color = Color(1, 0.47467405, 0.35798907, 1)
+sky_curve = 0.108094
+ground_bottom_color = Color(0.92059654, 0.36865726, 0.59625846, 1)
+ground_horizon_color = Color(1, 0.4745098, 0.35686275, 1)
+ground_curve = 0.016244946
+sun_angle_max = 38.67
+sun_curve = 0.07500001
+
+[sub_resource type="Sky" id="Sky_0wfyh"]
+sky_material = SubResource("ProceduralSkyMaterial_o5qli")
+process_mode = 1
+
+[sub_resource type="Environment" id="Environment_sugp2"]
+background_mode = 2
+background_energy_multiplier = 0.92
+sky = SubResource("Sky_0wfyh")
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 0.92
+ssr_enabled = true
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 0.13
+sdfgi_min_cell_size = 1.8
+glow_enabled = true
+glow_intensity = 3.7
+glow_hdr_threshold = 0.9
+glow_hdr_scale = 0.82
+fog_light_color = Color(1, 1, 1, 1)
+fog_light_energy = 10.64
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.001
+volumetric_fog_albedo = Color(0.8862745, 0.3254902, 0.48235294, 1)
+volumetric_fog_emission = Color(0.85709876, 0.37813675, 0.24380383, 1)
+volumetric_fog_emission_energy = 0.4
+volumetric_fog_gi_inject = 1.6
+volumetric_fog_anisotropy = 0.0
+volumetric_fog_length = 256.0
+volumetric_fog_detail_spread = 3.4460952
+
 [node name="Main" type="Node3D" unique_id=1458931452]
 
 [node name="Environment" type="Node3D" parent="." unique_id=1165375977]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1023220054]
-transform = Transform3D(0.7296612, -0.4108303, -0.5466379, 0, 0.79940164, -0.600797, 0.6838088, 0.43837827, 0.58329237, 0, 0, 0)
+transform = Transform3D(0.34095386, -4.10922e-08, 0.94008005, -0.94008005, -1.4903566e-08, 0.34095386, 0, -1, -4.371139e-08, 0, 0, 0)
 light_color = Color(1, 1, 0.61960787, 1)
-light_volumetric_fog_energy = 0.5
-light_angular_distance = 2.0
+light_volumetric_fog_energy = 5.197
+light_specular = 0.05
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=93448742]
+environment = SubResource("Environment_sugp2")
 
 [node name="Water" type="MeshInstance3D" parent="Environment" unique_id=157225992]
+transform = Transform3D(0.48467994, 0, -0.003713688, 0, 0.48469415, 0, 0.003713688, 0, 0.48467994, 7.595007, -7.3501368, -16.913967)
+mesh = ExtResource("1_o5qli")
