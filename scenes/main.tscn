@@ -91,3 +91,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.61668015, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=336435385]
 current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2123543488]
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer" unique_id=132588301]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+touch_dragger_enabled = true
+
+[node name="FoldableContainer" type="FoldableContainer" parent="CanvasLayer/HSplitContainer" unique_id=631781355]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/HSplitContainer/FoldableContainer" unique_id=352719807]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/HSplitContainer" unique_id=111898223]
+layout_mode = 2
