@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://c84ppebsdo7lq"]
+
+[ext_resource type="Script" uid="uid://crta8bcxqjllq" path="res://scripts/Editor/editor.gd" id="1_b1cmn"]
+[ext_resource type="Script" uid="uid://cumq2l4t8gwv8" path="res://scripts/Editor/lua_code_edit.gd" id="2_pxqd5"]
+
+[sub_resource type="LuaSyntaxHighlighter" id="LuaSyntaxHighlighter_b1cmn"]
+fill_editor_colors_callable = Callable()
+lua_keyword_color = Color(1, 0.44, 0.52, 1)
+lua_member_keyword_color = Color(1, 0.55, 0.8, 1)
+string_color = Color(1, 0.93, 0.63, 1)
+comment_color = Color(1, 1, 1, 0.5)
+number_color = Color(0.63, 1, 0.88, 1)
+symbol_color = Color(0.67, 0.79, 1, 1)
+function_color = Color(0.4, 0.9, 1, 1)
+member_variable_color = Color(0.736, 0.88, 1, 1)
+keyword_colors = {
+"and": Color(1, 0.44, 0.52, 1),
+"break": Color(1, 0.44, 0.52, 1),
+"do": Color(1, 0.44, 0.52, 1),
+"else": Color(1, 0.44, 0.52, 1),
+"elseif": Color(1, 0.44, 0.52, 1),
+"end": Color(1, 0.44, 0.52, 1),
+"false": Color(1, 0.44, 0.52, 1),
+"for": Color(1, 0.44, 0.52, 1),
+"function": Color(1, 0.44, 0.52, 1),
+"goto": Color(1, 0.44, 0.52, 1),
+"if": Color(1, 0.44, 0.52, 1),
+"in": Color(1, 0.44, 0.52, 1),
+"local": Color(1, 0.44, 0.52, 1),
+"nil": Color(1, 0.44, 0.52, 1),
+"not": Color(1, 0.44, 0.52, 1),
+"or": Color(1, 0.44, 0.52, 1),
+"repeat": Color(1, 0.44, 0.52, 1),
+"return": Color(1, 0.44, 0.52, 1),
+"then": Color(1, 0.44, 0.52, 1),
+"true": Color(1, 0.44, 0.52, 1),
+"until": Color(1, 0.44, 0.52, 1),
+"while": Color(1, 0.44, 0.52, 1)
+}
+member_keyword_colors = {
+"_G": Color(1, 0.55, 0.8, 1),
+"_VERSION": Color(1, 0.55, 0.8, 1),
+"self": Color(1, 0.55, 0.8, 1)
+}
+color_regions = {
+"\" \"": Color(1, 0.93, 0.63, 1),
+"' '": Color(1, 0.93, 0.63, 1),
+"--": Color(1, 1, 1, 0.5),
+"--[[ ]]": Color(1, 1, 1, 0.5),
+"[=[ ]=]": Color(1, 0.93, 0.63, 1),
+"[[ ]]": Color(1, 0.93, 0.63, 1)
+}
+
+[node name="Editor" type="Control" unique_id=679971770]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b1cmn")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=675283720]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(960)
+split_offset = 960
+
+[node name="FoldableContainer" type="FoldableContainer" parent="HSplitContainer" unique_id=825710041]
+layout_mode = 2
+
+[node name="LuaCodeEdit" type="LuaCodeEdit" parent="HSplitContainer/FoldableContainer" unique_id=1157053232]
+layout_mode = 2
+syntax_highlighter = SubResource("LuaSyntaxHighlighter_b1cmn")
+symbol_lookup_on_click = true
+symbol_tooltip_on_hover = true
+line_folding = true
+gutters_draw_line_numbers = true
+code_completion_enabled = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+script = ExtResource("2_pxqd5")
+
+[node name="Control" type="Control" parent="HSplitContainer" unique_id=650429329]
+layout_mode = 2

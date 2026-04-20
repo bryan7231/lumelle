@@ -3,6 +3,7 @@
 [ext_resource type="CylinderMesh" uid="uid://cciy0vwh2bi2" path="res://assets/shaders/WaterShader/water.tres" id="1_o5qli"]
 [ext_resource type="MeshLibrary" uid="uid://bjda3wmlq57db" path="res://assets/Meshes/KPMesh/tiles.tres" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://cbd8ntxnydphq" path="res://scripts/Player/Player.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c84ppebsdo7lq" path="res://scenes/editor.tscn" id="4_jyhfs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_top_color = Color(0.75128716, 0.15650678, 0.40742365, 1)
@@ -65,7 +66,7 @@ shadow_enabled = true
 environment = SubResource("Environment_sugp2")
 
 [node name="Water" type="MeshInstance3D" parent="Environment" unique_id=157225992]
-transform = Transform3D(0.48467994, 0, -0.003713688, 0, 0.48469415, 0, 0.003713688, 0, 0.48467994, 0, 0, 0)
+transform = Transform3D(0.48467994, 0, -0.003713688, 0, 0.48469415, 0, 0.003713688, 0, 0.48467994, -0.020378113, 0.03480339, -0.0115737915)
 mesh = ExtResource("1_o5qli")
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1755505428]
@@ -94,19 +95,4 @@ current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2123543488]
 
-[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer" unique_id=132588301]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-touch_dragger_enabled = true
-
-[node name="FoldableContainer" type="FoldableContainer" parent="CanvasLayer/HSplitContainer" unique_id=631781355]
-layout_mode = 2
-
-[node name="TextEdit" type="TextEdit" parent="CanvasLayer/HSplitContainer/FoldableContainer" unique_id=352719807]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="CanvasLayer/HSplitContainer" unique_id=111898223]
-layout_mode = 2
+[node name="Editor" parent="CanvasLayer" unique_id=679971770 instance=ExtResource("4_jyhfs")]

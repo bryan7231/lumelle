@@ -12,27 +12,27 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
-func _notification(what):
-	match what:
-		NOTIFICATION_APPLICATION_FOCUS_OUT:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		NOTIFICATION_APPLICATION_FOCUS_IN:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+#func _notification(what):
+	#match what:
+		#NOTIFICATION_APPLICATION_FOCUS_OUT:
+			#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		#NOTIFICATION_APPLICATION_FOCUS_IN:
+			#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		target_rotation_y -= event.relative.x * sensitivity
-		target_rotation_x -= event.relative.y * sensitivity
-		target_rotation_x = clamp(target_rotation_x, deg_to_rad(-40), deg_to_rad(60))
-
-func _input(event) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-func _process(delta):
-	head.quaternion = head.quaternion.slerp(Quaternion(Vector3.UP, target_rotation_y), smoothness * delta)
-	camera.quaternion = camera.quaternion.slerp(Quaternion(Vector3.RIGHT, target_rotation_x), smoothness * delta)
-	
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		#target_rotation_y -= event.relative.x * sensitivity
+		#target_rotation_x -= event.relative.y * sensitivity
+		#target_rotation_x = clamp(target_rotation_x, deg_to_rad(-40), deg_to_rad(60))
+#
+#func _input(event) -> void:
+	#if event.is_action_pressed("ui_cancel"):
+		#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+#
+#func _process(delta):
+	#head.quaternion = head.quaternion.slerp(Quaternion(Vector3.UP, target_rotation_y), smoothness * delta)
+	#camera.quaternion = camera.quaternion.slerp(Quaternion(Vector3.RIGHT, target_rotation_x), smoothness * delta)
+	#
 
 func _physics_process(delta):
 	if not is_on_floor():
